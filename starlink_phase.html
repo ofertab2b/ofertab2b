@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Móvil | Consulta de Fase Starlink</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="branding">
+                <div>
+                    <h1>Consulta de Fase Starlink</h1>
+                    <p>Presentación estática de la interfaz para búsquedas vinculadas a la fase Starlink en una base de datos móvil. La página está optimizada para GitHub Pages.</p>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="value_search.html">Consulta por Teléfono</a>
+                    <a href="starlink_phase.html" class="active">Consulta Starlink</a>
+                </div>
+            </div>
+            <img src="static/logo.jpg" alt="Operator Móvil" class="logo" />
+        </header>
+
+        <section class="hero-card">
+            <h2>Un flujo de búsqueda claro y amigable</h2>
+            <p>Esta página describe cómo se vería la consulta de fase Starlink en una aplicación real. El diseño es responsive y está preparado para presentación pública.</p>
+        </section>
+
+        <section class="section-card">
+            <h3>Qué muestra esta demo</h3>
+            <p>La interfaz muestra un formulario para ejecutar una consulta SQL con parámetro <code>:value</code>, pero no se ejecuta en GitHub Pages.</p>
+            <div class="code-block">SELECT * FROM starlink_phase_table WHERE phone = :value</div>
+            <div class="note">La funcionalidad real se activa únicamente cuando el backend Flask está en ejecución y conectado a Oracle.</div>
+        </section>
+
+        <section class="demo-card">
+            <h3>Vista previa del formulario</h3>
+            <form>
+                <label for="query">Consulta SQL</label>
+                <textarea id="query" disabled>SELECT * FROM starlink_phase_table WHERE phone = :value</textarea>
+                <label for="value">Teléfono</label>
+                <input id="value" type="text" disabled value="51912345678" />
+                <button type="button" disabled>Ejecutar</button>
+                <button type="button" disabled>Descargar reporte</button>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <p>Si deseas resultados reales, ejecuta el backend Flask del proyecto conectado a la base de datos Oracle.</p>
+        </footer>
+    </div>
+</body>
+</html>

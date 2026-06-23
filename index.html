@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Móvil | Demo pública</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="branding">
+                <div>
+                    <h1>Operator Móvil</h1>
+                    <p>Una interfaz elegante y moderna para consultas SQL orientadas a datos móviles. Esta versión pública es una demostración estática compatible con GitHub Pages.</p>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="active">Inicio</a>
+                    <a href="value_search.html">Consulta por Teléfono</a>
+                    <a href="starlink_phase.html">Consulta Starlink</a>
+                </div>
+            </div>
+            <img src="static/logo.jpg" alt="Operator Móvil" class="logo" />
+        </header>
+
+        <section class="hero-card">
+            <div class="hero-grid">
+                <div>
+                    <h2>Publica tu demo en GitHub Pages</h2>
+                    <p>La versión estática de Operator Móvil ofrece una experiencia visual moderna y adaptable, ideal para mostrar tu proyecto sin necesidad de backend en GitHub Pages.</p>
+                    <div class="badge-list">
+                        <span class="badge">Diseño responsive</span>
+                        <span class="badge">Componentes limpios</span>
+                        <span class="badge">Navegación intuitiva</span>
+                    </div>
+                </div>
+                <img src="static/logo.jpg" alt="Demo Operator Móvil" />
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h3>¿Qué incluye esta demo?</h3>
+            <p>Esta publicación en GitHub Pages hospeda una versión estática de la aplicación web. El contenido está orientado a la presentación y a la experiencia de usuario, pero no ejecuta consultas reales.</p>
+            <ul>
+                <li>Interfaz de consulta libre con formulario de SQL.</li>
+                <li>Diseño para consulta por teléfono usando un placeholder <code>:value</code>.</li>
+                <li>Página de consulta de fase Starlink con diseño de formulario.</li>
+                <li>Compatibilidad móvil y fácil lectura en pantallas pequeñas.</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h3>Cómo usarlo en GitHub Pages</h3>
+            <p>Sube el repositorio a GitHub y habilita Pages desde la rama principal. La carpeta raíz del repositorio contendrá las páginas estáticas listadas a continuación.</p>
+            <div class="code-block">https://&lt;tu_usuario&gt;.github.io/&lt;tu_repositorio&gt;/</div>
+            <div class="note">Para ejecutar consultas reales necesitas el backend Flask con conexión a Oracle. Esta versión estática es ideal para presentar el front-end y el flujo de navegación.</div>
+        </section>
+
+        <section class="demo-card">
+            <h3>Vista previa de la interfaz</h3>
+            <p>Los botones y formularios están deshabilitados en esta demo para indicar que se trata de una versión de presentación.</p>
+            <div class="code-block">SELECT * FROM TMP_CMO WHERE ROWNUM &lt;= 100</div>
+        </section>
+
+        <footer class="footer">
+            <p>Esta versión estática está pensada para GitHub Pages. El backend Flask se mantiene en el repositorio pero no se ejecuta en la página pública.</p>
+        </footer>
+    </div>
+</body>
+</html>
