@@ -47,9 +47,9 @@ Copy-Item .env.example .env
 .venv\Scripts\python app.py
 ```
 
-Después abre `http://127.0.0.1:5001` en el navegador. Para usar otro puerto, define la variable `PORT`; por ejemplo: `$env:PORT='5000'`.
+Después abre `http://127.0.0.1:5001` en el navegador. Para usar otro puerto, define la variable `PORT`; por ejemplo: `$env:PORT='5000'`. La aplicación local usa únicamente HTTP.
 
-> Importante: `ORACLE_DSN` es la cadena de conexión Oracle, no la URL de la página web. La aplicación se abre en `http://127.0.0.1:5000`.
+> Importante: `ORACLE_DSN` es la cadena de conexión Oracle, no la URL de la página web.
 
 ## Despliegue en Vercel
 

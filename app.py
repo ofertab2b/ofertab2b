@@ -1,7 +1,6 @@
 import io
 import os
 import socket
-import ssl
 import oracledb
 from flask import Flask, Response, render_template, request, redirect, url_for, flash
 from openpyxl import Workbook
@@ -288,47 +287,9 @@ def status():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', '5001'))
 
-    # HTTP es el modo local predeterminado y funciona con el reenvío de puertos.
-    # Para probar HTTPS con certificados auto-firmados, usa FLASK_HTTPS=1.
-    if os.environ.get('FLASK_HTTPS') != '1':
-        print(f'Iniciando aplicación en http://localhost:{port}/')
-        app.run(
-            host='0.0.0.0',
-            port=port,
-            debug=os.environ.get('FLASK_DEBUG') == '1',
-        )
-        raise SystemExit(0)
-
-    # Configurar HTTPS con certificados auto-firmados
-    cert_file = os.path.join(os.path.dirname(__file__), 'cert.pem')
-    key_file = os.path.join(os.path.dirname(__file__), 'key.pem')
-    
-    if not os.path.exists(cert_file) or not os.path.exists(key_file):
-        print(f"Error: Certificados no encontrados")
-        print(f"  Certificado: {cert_file}")
-        print(f"  Clave: {key_file}")
-        print("\nGenera los certificados con: python generate_certs.py")
-        exit(1)
-    
-    try:
-        # Crear contexto SSL
-        ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-        ssl_context.load_cert_chain(cert_file, key_file)
-        
-        print(f"Iniciando aplicación con HTTPS")
-        print(f"  Accede en: https://pel5cd229bqsm:5000/")
-        print(f"  O en: https://localhost:5000/")
-        print(f"  Nota: El navegador mostrará una advertencia de seguridad.")
-        print(f"  Asegúrate de que el puerto 5000 está abierto en el firewall.")
-        
-        app.run(
-            host='0.0.0.0',
-            port=port,
-            ssl_context=ssl_context,
-            debug=os.environ.get('FLASK_DEBUG') == '1',
-        )
-    except Exception as e:
-        print(f"Error al iniciar HTTPS: {e}")
-        import traceback
-        traceback.print_exc()
-        exit(1)
+    print(f'Iniciando aplicación en http://localhost:{port}/')
+    app.run(
+        host='0.0.0.0',
+        port=port,
+        debug=os.environ.get('FLASK_DEBUG') == '1',
+    )
