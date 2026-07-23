@@ -15,7 +15,7 @@ app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'cambiame_por_una_llave_secr
 
 ORACLE_USER = os.environ.get('ORACLE_USER')
 ORACLE_PASSWORD = os.environ.get('ORACLE_PASSWORD')
-ORACLE_DSN = os.environ.get('ORACLE_DSN', '10.101.115.24:1521/EBSBSB2B_PSB_EBSCSB2B.paas.oracle.com')
+ORACLE_DSN = os.environ.get('ORACLE_DSN')
 DEFAULT_QUERY = os.environ.get('DEFAULT_QUERY', 'SELECT SYSDATE FROM dual')
 
 
@@ -63,9 +63,10 @@ def check_tcp_port(host: str, port: int, timeout: float = 3.0) -> None:
 
 
 def get_connection():
-    if not ORACLE_USER or not ORACLE_PASSWORD:
+    if not ORACLE_USER or not ORACLE_PASSWORD or not ORACLE_DSN:
         raise ConnectionError(
-            'Faltan las credenciales de Oracle. Define ORACLE_USER y ORACLE_PASSWORD en el archivo .env.'
+            'Falta la configuración de Oracle. Define ORACLE_USER, ORACLE_PASSWORD y ORACLE_DSN. '
+            'En Vercel, agrégalas en Settings > Environment Variables y vuelve a desplegar.'
         )
 
     """Devuelve una conexión a Oracle usando variables de entorno."""

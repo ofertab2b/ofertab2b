@@ -51,6 +51,19 @@ Después abre `http://127.0.0.1:5000` en el navegador.
 
 > Importante: `ORACLE_DSN` es la cadena de conexión Oracle, no la URL de la página web. La aplicación se abre en `http://127.0.0.1:5000`.
 
+## Despliegue en Vercel
+
+Vercel no lee el archivo `.env` de tu equipo ni los secretos guardados en GitHub. En el proyecto de Vercel, abre **Settings > Environment Variables** y crea estas variables para los entornos **Production**, **Preview** y **Development**:
+
+- `ORACLE_USER`
+- `ORACLE_PASSWORD`
+- `ORACLE_DSN` (formato: `host:1521/service_name`)
+- `FLASK_SECRET_KEY` (un valor aleatorio y privado)
+
+Guarda los cambios y ejecuta **Deployments > Redeploy**. No publiques estas variables en el repositorio ni en `.env.example`.
+
+> La base de datos Oracle debe ser accesible desde internet para que Vercel pueda conectarse. Si solo está disponible en una red privada, usa un backend desplegado dentro de esa red o habilita una conexión de red segura; Vercel no puede acceder a direcciones internas.
+
 ## Publicar en GitHub Pages
 
 Esta aplicación contiene ahora una versión estática diseñada para GitHub Pages:
