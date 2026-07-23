@@ -286,6 +286,17 @@ def status():
 
 
 if __name__ == '__main__':
+    # HTTP es el modo local predeterminado y funciona con el reenvío de puertos.
+    # Para probar HTTPS con certificados auto-firmados, usa FLASK_HTTPS=1.
+    if os.environ.get('FLASK_HTTPS') != '1':
+        print('Iniciando aplicación en http://localhost:5000/')
+        app.run(
+            host='0.0.0.0',
+            port=5000,
+            debug=os.environ.get('FLASK_DEBUG') == '1',
+        )
+        raise SystemExit(0)
+
     # Configurar HTTPS con certificados auto-firmados
     cert_file = os.path.join(os.path.dirname(__file__), 'cert.pem')
     key_file = os.path.join(os.path.dirname(__file__), 'key.pem')
