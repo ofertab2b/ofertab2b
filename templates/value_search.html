@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Móvil</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 24px; }
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .logo {
+            max-height: 80px;
+            width: auto;
+        }
+        .menu {
+            margin-bottom: 16px;
+        }
+        .menu a {
+            margin-right: 16px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .menu a.active {
+            color: #0066cc;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            font-family: monospace;
+            font-size: 14px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            padding: 8px;
+        }
+        textarea { height: 120px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 16px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #f0f0f0; }
+        .message { margin: 12px 0; padding: 10px; border-radius: 4px; }
+        .danger { background: #f8d7da; color: #842029; }
+        .warning { background: #fff3cd; color: #664d03; }
+        .info { background: #cff4fc; color: #055160; }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <div>
+            <h1>Operator Móvil</h1>
+            <div class="menu">
+                <a href="{{ url_for('index') }}">Consulta Libre</a>
+                <a href="{{ url_for('value_search') }}" class="active">Consulta por Teléfono</a>
+                <a href="{{ url_for('starlink_phase') }}">Consulta de Fase Starlink</a>
+            </div>
+        </div>
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="logo" />
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="message {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <textarea id="query" name="query" required>{{ query }}</textarea>
+
+        <label for="value">Ingrese el teléfono</label>
+
+        <input id="value" name="value" type="text" value="{{ value }}" required />
+
+        <button type="submit" name="action" value="execute">Ejecutar</button>
+        <button type="submit" name="action" value="download">Descargar reporte</button>
+    </form>
+
+    {% if status_message and results is none %}
+        <div class="message info">{{ status_message }}</div>
+    {% endif %}
+
+    {% if results is not none %}
+        {% if results %}
+        <table>
+            <thead>
+                <tr>
+                    {% for col in columns %}
+                        <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                    <tr>
+                        {% for value in row %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No se devolvieron filas.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

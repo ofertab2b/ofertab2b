@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Móvil | Consulta por Teléfono</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+    <div class="site-shell">
+        <header class="header">
+            <div class="branding">
+                <div>
+                    <h1>Consulta por Teléfono</h1>
+                    <p>Interfaz visual para buscar registros por teléfono. Esta versión estática muestra el flujo de usuario que se publicaría en GitHub Pages.</p>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="value_search.html" class="active">Consulta por Teléfono</a>
+                    <a href="starlink_phase.html">Consulta Starlink</a>
+                </div>
+            </div>
+            <img src="static/logo.jpg" alt="Operator Móvil" class="logo" />
+        </header>
+
+        <section class="hero-card">
+            <h2>Una búsqueda basada en placeholders</h2>
+            <p>En una aplicación real, el formulario tomaría una consulta SQL y un valor de teléfono. El backend reemplazaría el placeholder <code>:value</code> y devolvería los resultados correspondientes.</p>
+        </section>
+
+        <section class="section-card">
+            <h3>Descripción de la funcionalidad</h3>
+            <p>Esta página explica cómo funciona la consulta por teléfono sin ejecutar realmente el backend. Ideal para mostrar al usuario final el comportamiento esperado.</p>
+            <div class="code-block">SELECT * FROM TMP_CMO WHERE MSISDN = :value</div>
+            <div class="note">Si necesitas datos reales, el backend Flask del repositorio debe ejecutarse conectado a Oracle.</div>
+        </section>
+
+        <section class="demo-card">
+            <h3>Formulario de ejemplo</h3>
+            <p>Los campos siguientes son de demostración. GitHub Pages no puede ejecutar la consulta.</p>
+            <form>
+                <label for="query">Consulta SQL</label>
+                <textarea id="query" disabled>SELECT * FROM TMP_CMO WHERE MSISDN = :value</textarea>
+                <label for="value">Teléfono</label>
+                <input id="value" type="text" disabled value="51912345678" />
+                <button type="button" disabled>Ejecutar</button>
+                <button type="button" disabled>Descargar reporte</button>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <p>Recuerda: esta demo es estática. Para resultados reales, usa el backend Flask y conexión Oracle.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# Entorno Python y archivos generados
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Credenciales y configuracion local
+.env
+
+# Certificados privados
+cert.pem
+key.pem
+
+# IDE / editor
+.vscode/
+.DS_Store
+
+# Registros de ejecución
+*.log

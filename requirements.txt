@@ -1,0 +1,7 @@
+Flask>=2.3
+python-dotenv>=1.0
+oracledb>=1.1
+openpyxl>=3.0
+pyopenssl>=23.0
+cryptography>=40.0
+pandas>=1.5

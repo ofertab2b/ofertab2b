@@ -1,0 +1,174 @@
+/* Estilos compartidos para la versión pública de GitHub Pages */
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1e293b;
+  background: #f8fafc;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+a {
+  color: #0f62fe;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+button {
+  font: inherit;
+}
+.site-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.branding {
+  display: grid;
+  gap: 8px;
+}
+.branding h1 {
+  margin: 0;
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  letter-spacing: -0.04em;
+}
+.branding p {
+  margin: 0;
+  max-width: 680px;
+  color: #475569;
+}
+.nav-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #0f172a;
+  font-weight: 600;
+}
+.nav-links a.active,
+.nav-links a:hover {
+  background: #0f62fe;
+  color: #fff;
+}
+.hero-card,
+.section-card,
+.demo-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  padding: 32px;
+  margin-bottom: 24px;
+}
+.hero-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 1fr);
+  align-items: center;
+}
+.hero-grid img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  max-height: 420px;
+}
+.hero-card h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: clamp(2rem, 2.5vw, 2.75rem);
+}
+.hero-card p {
+  margin: 0 0 18px;
+  color: #475569;
+}
+.badge-list {
+  display: grid;
+  gap: 14px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 600;
+}
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.section-card h3,
+.demo-card h3 {
+  margin-top: 0;
+}
+.section-card p,
+.demo-card p {
+  color: #475569;
+}
+.code-block {
+  width: 100%;
+  background: #0f172a;
+  color: #f8fafc;
+  border-radius: 16px;
+  padding: 18px;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.95rem;
+  margin: 18px 0 0;
+}
+.note {
+  margin-top: 24px;
+  padding: 20px;
+  border-left: 4px solid #0f62fe;
+  background: #eef4ff;
+  border-radius: 16px;
+  color: #0f172a;
+}
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  color: #64748b;
+}
+@media (max-width: 900px) {
+  .hero-grid,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 640px) {
+  .site-shell {
+    padding: 16px 0 32px;
+  }
+  .nav-links {
+    gap: 10px;
+  }
+}
